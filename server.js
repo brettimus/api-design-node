@@ -10,16 +10,7 @@ var jsonData = {count: 12, message: 'hey'};
 
 
 app.get("/", function(req, res) {
-    fs.readFile(__dirname + "/index.html", function(err, data) {
-        if (err) {
-            res.status(500);
-            res.send("500 - Internal Error");
-            console.error(err);
-            return;
-        }
-        // TODO - send index.html
-        res.send(data.toString());
-    });
+    res.sendFile(__dirname + "/index.html");
 });
 
 app.get("/data", function(req, res) {
